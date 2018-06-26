@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TravelBuddy</string>
+
+    <string name="country_bra">Brazil</string>
+    <string name="country_usa">USA</string>
+    <string name="country_can">Canada</string>
+    <!--<string name="country_fra"></string>-->
+
+</resources>
