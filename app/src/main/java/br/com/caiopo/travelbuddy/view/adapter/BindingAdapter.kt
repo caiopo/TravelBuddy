@@ -10,11 +10,12 @@ abstract class BindingAdapter<T, B>(
         private val layoutId: Int
 ) : RecyclerView.Adapter<BindingViewHolder<B>>() where B : ViewDataBinding {
 
-    var data: List<T> = emptyList()
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
+    protected var data: List<T> = emptyList()
+
+    open fun setItems(newItems: List<T>) {
+        data = newItems
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BindingViewHolder<B> {
         val inflater = LayoutInflater.from(parent.context)
