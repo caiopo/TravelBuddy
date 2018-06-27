@@ -1,4 +1,4 @@
-package br.com.caiopo.travelbuddy.model.api;
+package br.com.caiopo.travelbuddy.model.api.conversion;
 
 import br.com.caiopo.travelbuddy.model.entity.Conversion;
 import retrofit2.Call;

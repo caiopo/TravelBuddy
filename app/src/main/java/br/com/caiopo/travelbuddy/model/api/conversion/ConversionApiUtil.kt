@@ -1,4 +1,4 @@
-package br.com.caiopo.travelbuddy.model.api
+package br.com.caiopo.travelbuddy.model.api.conversion
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

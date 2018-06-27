@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">TravelBuddy</string>
 
-    <string name="country_bra">Brazil</string>
-    <string name="country_usa">USA</string>
-    <string name="country_can">Canada</string>
-    <!--<string name="country_fra"></string>-->
+    <string name="region_africa">Africa</string>
+    <string name="region_americas">Americas</string>
+    <string name="region_asia">Asia</string>
+    <string name="region_europe">Europe</string>
+    <string name="region_oceania">Oceania</string>
 
 </resources>
