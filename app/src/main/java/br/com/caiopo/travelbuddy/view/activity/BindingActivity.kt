@@ -1,4 +1,4 @@
-package br.com.caiopo.travelbuddy.view
+package br.com.caiopo.travelbuddy.view.activity
 
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
