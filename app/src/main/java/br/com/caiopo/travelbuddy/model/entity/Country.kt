@@ -4,16 +4,16 @@ import br.com.caiopo.travelbuddy.App
 import br.com.caiopo.travelbuddy.view.getCurrentLocale
 
 data class Country(
-        val name: String, // TODO remove
+        val name: String,
         val alpha3Code: String,
         val flag: String,
         val region: String,
         val area: Float,
+        val population: Int,
         val timezones: List<String>,
         val borders: List<String>,
-        val translations: Map<String, String>,
-        val population: Int,
-        val currencies: List<Currency>
+        val currencies: List<Currency>,
+        private val translations: Map<String, String>
 ) {
 
     fun getLocalizedName(): String {

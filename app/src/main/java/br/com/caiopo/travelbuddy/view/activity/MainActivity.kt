@@ -28,6 +28,8 @@ class MainActivity : BindingActivity<ActivityMainBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding.loading = true
+
         SvgLoader.pluck()
                 .with(this)
 

@@ -23,6 +23,8 @@ class CountryActivity : BindingActivity<ActivityCountryBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding.loading = true
+
         setSupportActionBar(binding.toolbar)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -61,5 +63,10 @@ class CountryActivity : BindingActivity<ActivityCountryBinding>() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        SvgLoader.pluck().close()
     }
 }

@@ -4,6 +4,8 @@
 
     <data>
 
+        <import type="br.com.caiopo.travelbuddy.model.resolver.Resolvers" />
+
         <variable
             name="country"
             type="br.com.caiopo.travelbuddy.model.entity.Country" />
@@ -21,11 +23,51 @@
             android:layout_margin="8dp"
             app:contentPadding="16dp">
 
-
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{country.region}" />
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/title_infos"
+                    android:textAppearance="@style/TextTitle" />
+
+                <com.google.android.flexbox.FlexboxLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:dividerDrawableHorizontal="@drawable/vertical_padding"
+                    app:dividerDrawableVertical="@drawable/horizontal_padding"
+                    app:flexWrap="wrap"
+                    app:showDividerHorizontal="middle"
+                    app:showDividerVertical="middle">
+
+                    <include
+                        content="@{Resolvers.region.get(country.region)}"
+                        label="@{@string/label_region}"
+                        layout="@layout/include_label_content" />
+
+                    <include
+                        content="@{@string/format_area(country.area)}"
+                        label="@{@string/label_area}"
+                        layout="@layout/include_label_content" />
+
+                    <include
+                        content="@{country.alpha3Code.toUpperCase()}"
+                        label="@{@string/label_iso_code}"
+                        layout="@layout/include_label_content" />
+
+                    <include
+                        content="@{String.valueOf(country.population)}"
+                        label="@{@string/label_population}"
+                        layout="@layout/include_label_content" />
+
+                </com.google.android.flexbox.FlexboxLayout>
+
+            </LinearLayout>
 
         </android.support.v7.widget.CardView>
 
