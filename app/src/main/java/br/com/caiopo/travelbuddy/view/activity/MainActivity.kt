@@ -43,15 +43,12 @@ class MainActivity : BindingActivity<ActivityMainBinding>() {
             countriesAdapter.setItems(it?.value ?: return@Observer)
         })
 
-        viewModel.loadCountries()
-
         binding.rvCountries.adapter = countriesAdapter
 
         val layoutManager = LinearLayoutManager(this)
         binding.rvCountries.layoutManager = layoutManager
 
     }
-
 
     override fun onDestroy() {
         super.onDestroy()

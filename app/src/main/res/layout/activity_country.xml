@@ -94,6 +94,7 @@
                     android:layout_height="match_parent">
 
                     <include
+                        android:id="@+id/content"
                         country="@{country}"
                         layout="@layout/content_country" />
 

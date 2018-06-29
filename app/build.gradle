@@ -22,6 +22,10 @@ android {
     dataBinding {
         enabled = true
     }
+    lintOptions {
+        disable 'RtlHardcoded', 'RtlSymmetry', 'ContentDescription', 'GoogleAppIndexingWarning', 'InvalidPackage', 'Typos'
+    }
+
 }
 
 dependencies {
@@ -47,7 +51,7 @@ dependencies {
 
     // Misc
     implementation 'org.jetbrains.anko:anko-commons:0.10.5'
-//    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.github.ar-android:AndroidSvgLoader:1.0.1'
     implementation 'com.google.android:flexbox:1.0.0'
 

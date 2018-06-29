@@ -12,9 +12,15 @@ class CountriesViewModel : ViewModel() {
     private val _countries = RetrofitLiveData<List<Country>>()
 
     val countries: LiveData<ErrorWrapper<List<Country>>>
-        get() = _countries
+        get() {
+            if (_countries.value == null) {
+                loadCountries()
+            }
+            return _countries
+        }
 
-    fun loadCountries() {
+    private fun loadCountries() {
         CountriesApiUtil.client.countries.enqueue(_countries)
     }
 }
+

@@ -11,7 +11,7 @@ class RegionResolver : BaseResolver<String>() {
             "asia" -> R.string.region_asia
             "oceania" -> R.string.region_oceania
             "europe" -> R.string.region_europe
-            "plar" -> R.string.region_europe
+            "polar" -> R.string.region_polar
             else -> throw NoSuchElementException("no region with key '$item'")
         }
     }
