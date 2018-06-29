@@ -5,6 +5,7 @@ import br.com.caiopo.travelbuddy.view.getCurrentLocale
 
 data class Country(
         val name: String, // TODO remove
+        val alpha3Code: String,
         val flag: String,
         val region: String,
         val area: Float,

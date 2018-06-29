@@ -1,8 +1,9 @@
 package br.com.caiopo.travelbuddy.view
 
 import android.content.Context
+import android.databinding.BindingAdapter
 import android.os.Build
-import br.com.caiopo.travelbuddy.App
+import android.view.View
 import br.com.caiopo.travelbuddy.model.entity.Country
 import java.util.*
 
@@ -19,4 +20,10 @@ fun getCurrentLocale(context: Context): Locale {
     } else {
         conf.locale
     }
+}
+
+
+@BindingAdapter("visibleIf")
+fun visibleIf(view: View, visible: Boolean) {
+    view.visibility = if (visible) View.VISIBLE else View.GONE
 }

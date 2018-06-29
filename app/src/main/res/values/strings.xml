@@ -6,5 +6,9 @@
     <string name="region_asia">Asia</string>
     <string name="region_europe">Europe</string>
     <string name="region_oceania">Oceania</string>
+    <string name="region_polar">Polar</string>
 
+    <string name="generic_error">Something has gone wrong</string>
+
+    <string name="action_settings">Settings</string>
 </resources>
