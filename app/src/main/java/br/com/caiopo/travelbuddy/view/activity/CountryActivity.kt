@@ -10,6 +10,8 @@ import br.com.caiopo.travelbuddy.model.entity.Conversion
 import br.com.caiopo.travelbuddy.model.entity.Country
 import br.com.caiopo.travelbuddy.util.ErrorWrapper
 import br.com.caiopo.travelbuddy.view.adapter.ConversionsAdapter
+import br.com.caiopo.travelbuddy.view.adapter.TimezoneAdapter
+import br.com.caiopo.travelbuddy.view.getCurrentLocale
 import br.com.caiopo.travelbuddy.viewmodel.ConversionViewModel
 import br.com.caiopo.travelbuddy.viewmodel.CountriesViewModel
 import com.ahmadrosid.svgloader.SvgLoader
@@ -22,6 +24,7 @@ class CountryActivity : BindingActivity<ActivityCountryBinding>() {
     }
 
     private val conversionsAdapter = ConversionsAdapter()
+    private val timezoneAdapter = TimezoneAdapter()
 
     override val layoutId: Int
         get() = R.layout.activity_country
@@ -36,6 +39,7 @@ class CountryActivity : BindingActivity<ActivityCountryBinding>() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.content?.rvConversions?.adapter = conversionsAdapter
+        binding.content?.rvTimezones?.adapter = timezoneAdapter
 
         val countryCode = intent.getStringExtra(COUNTRY_CODE_KEY)
         title = intent.getStringExtra(COUNTRY_NAME_KEY)
@@ -76,11 +80,23 @@ class CountryActivity : BindingActivity<ActivityCountryBinding>() {
                     .with(this)
                     .load(country.flag, binding.backdrop)
 
+            timezoneAdapter.setItems(country.timezones)
+
             val conversionViewModel = ViewModelProviders.of(this).get(ConversionViewModel::class.java)
 
-            conversionViewModel.getConversions("BRL", country.currencies.map { it.code.toUpperCase() })
+            val fromCurrency = getFromCurrency()
+
+            conversionViewModel.getConversions(fromCurrency, country.currencies.map { it.code.toUpperCase() })
                     .observe(this, Observer(this::onConversionLoaded))
         }
+    }
+
+    private fun getFromCurrency(): String {
+        if (getCurrentLocale(this).country.toLowerCase() == "br") {
+            return "BRL"
+        }
+
+        return "USD"
     }
 
     private fun onConversionLoaded(ewConversion: ErrorWrapper<Conversion>?) {

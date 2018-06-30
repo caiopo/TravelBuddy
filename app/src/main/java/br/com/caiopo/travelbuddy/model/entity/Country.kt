@@ -20,10 +20,10 @@ data class Country(
         val locale = getCurrentLocale(App.context)
 
         if (locale.language.toLowerCase() == "pt") {
-            return translations["br"] ?: name
+            return (translations["br"] ?: name).capitalize()
         }
 
-        return name
+        return name.capitalize()
     }
 }
 

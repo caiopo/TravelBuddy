@@ -6,9 +6,13 @@ import android.databinding.BindingAdapter
 import android.os.Build
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import br.com.caiopo.travelbuddy.App
 import br.com.caiopo.travelbuddy.model.entity.Country
 import com.squareup.picasso.Picasso
+import org.joda.time.DateTime
+import org.joda.time.DateTimeZone
+import org.joda.time.format.DateTimeFormat
 import java.util.*
 
 
@@ -33,6 +37,11 @@ fun getCurrentLocale(context: Context): Locale {
     }
 }
 
+fun getTimeZoneId(id: String): String {
+    if (id == "UTC") return id
+
+    return id.substring(3)
+}
 
 @BindingAdapter("visibleIf")
 fun visibleIf(view: View, visible: Boolean) {
@@ -44,4 +53,15 @@ fun loadImage(view: ImageView, url: String?) {
     Picasso.get()
             .load(url ?: return)
             .into(view)
+}
+
+@BindingAdapter("dateFromTimeZone")
+fun dateFromTimeZone(view: TextView, timeZone: String?) {
+    if (timeZone == null) return
+
+    val now = DateTime.now().withZone(DateTimeZone.forID(getTimeZoneId(timeZone)))
+
+    val formattedTime = DateTimeFormat.mediumTime().print(now)
+
+    view.text = formattedTime
 }

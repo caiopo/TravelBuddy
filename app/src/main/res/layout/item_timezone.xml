@@ -4,16 +4,8 @@
     <data>
 
         <variable
-            name="from"
+            name="timezone"
             type="String" />
-
-        <variable
-            name="to"
-            type="String" />
-
-        <variable
-            name="rate"
-            type="float" />
     </data>
 
     <LinearLayout
@@ -26,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@{@string/format_money(1.0, to)}"
+            android:text="@{timezone}"
             android:textAppearance="@style/TextInfo" />
 
         <ImageView
@@ -35,11 +27,11 @@
             android:src="@drawable/ic_arrow_forward_black" />
 
         <TextView
+            dateFromTimeZone="@{timezone}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@{@string/format_money(rate, from)}"
             android:textAppearance="@style/TextInfo" />
 
     </LinearLayout>

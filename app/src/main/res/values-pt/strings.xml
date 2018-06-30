@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TravelBuddy</string>
+
+    <string name="region_africa">África</string>
+    <string name="region_americas">Américas</string>
+    <string name="region_asia">Ásia</string>
+    <string name="region_europe">Europa</string>
+    <string name="region_oceania">Oceania</string>
+    <string name="region_polar">Polo</string>
+
+    <string name="generic_error">Algo deu errado</string>
+
+    <string name="title_infos">Informações Básicas</string>
+    <string name="title_map">Mapa</string>
+    <string name="title_currencies">Conversão Monetária</string>
+
+    <string name="label_region">Região</string>
+    <string name="label_area">Área</string>
+    <string name="label_iso_code">Código Alpha-3</string>
+    <string name="label_population">População</string>
+    <string name="title_timezones">Fusos Horários</string>
+</resources>
